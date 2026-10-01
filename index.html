@@ -92,6 +92,16 @@
   ]
 }
 </script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://webtools-labs.com/" },
+    { "@type": "ListItem", "position": 2, "name": "産休・育休手当金シミュレーター" }
+  ]
+}
+</script>
 <style>
 :root {
   --bg: #ffffff;
@@ -241,10 +251,14 @@ footer.site-footer a { color: var(--accent); }
 }
 .faq-item[open] summary::after { content: '−'; }
 .faq-item p { margin: 0.7rem 0 0; color: var(--muted); font-size: 0.88rem; }
+.breadcrumb { font-size: 0.78rem; color: var(--muted); margin-bottom: 1.1rem; }
+.breadcrumb a { color: var(--accent); text-decoration: none; }
+.breadcrumb a:hover { text-decoration: underline; }
 </style>
 </head>
 <body>
 <div class="page">
+  <nav class="breadcrumb" aria-label="パンくずリスト"><a href="https://webtools-labs.com/">ホーム</a> / 産休・育休手当金シミュレーター</nav>
   <header class="masthead">
     <h1>産休・育休手当金シミュレーター</h1>
     <p class="lede">産休前の月収を入れるだけで、出産手当金（産休中）と育児休業給付金（育休中）の目安をまとめて計算します。</p>
