@@ -196,7 +196,7 @@ tr.total { background: var(--best-bg); }
 tr.subtotal td { font-weight: 700; color: var(--accent); }
 
 .ref-table { overflow-x: auto; }
-.ref-table table { width: 100%; border-collapse: collapse; font-size: 0.86rem; min-width: 460px; }
+.ref-table table { width: 100%; border-collapse: collapse; font-size: 0.86rem; min-width: 0; }
 .ref-table th, .ref-table td { padding: 0.5rem 0.5rem; border-bottom: 1px solid var(--line); text-align: left; }
 .ref-table td.num { font-variant-numeric: tabular-nums; text-align: right; }
 
@@ -277,6 +277,15 @@ footer.site-footer a { color: var(--accent); }
 .breadcrumb { font-size: 0.78rem; color: var(--muted); margin-bottom: 1.1rem; }
 .breadcrumb a { color: var(--accent); text-decoration: none; }
 .breadcrumb a:hover { text-decoration: underline; }
+/* スマホで表が画面からはみ出さないように（2026-11-17） */
+@media (max-width: 600px) {
+  .ref-table table { font-size: 0.8rem; }
+  .ref-table th, .ref-table td { padding: 0.45rem 0.3rem; }
+  .ref-table th, .ref-table td:first-child { white-space: normal; }
+  .ref-table td.nw { white-space: nowrap; }
+  .ref-table th:first-child, .ref-table td:first-child { min-width: 5em; position: sticky; left: 0; z-index: 1; background: var(--bg); box-shadow: 1px 0 0 var(--line); }
+  .ref-table tr.best td:first-child, .ref-table tr.total td:first-child, .ref-table tr.next td:first-child, .ref-table tr.highlight td:first-child { background: var(--best-bg, var(--bg)); }
+}
 </style>
 </head>
 <body>
@@ -363,11 +372,11 @@ footer.site-footer a { color: var(--accent); }
       <table>
         <thead><tr><th>育休期間</th><th class="num">育児休業給付金</th><th class="num">出産手当金＋育休給付金</th></tr></thead>
         <tbody>
-          <tr><td>3か月</td><td class="num">約50.3万円</td><td class="num">約104.7万円</td></tr>
-          <tr><td>6か月</td><td class="num">約100.5万円</td><td class="num">約154.9万円</td></tr>
-          <tr><td>12か月</td><td class="num">約175.5万円</td><td class="num">約229.9万円</td></tr>
-          <tr><td>18か月</td><td class="num">約250.5万円</td><td class="num">約304.9万円</td></tr>
-          <tr><td>24か月</td><td class="num">約325.5万円</td><td class="num">約379.9万円</td></tr>
+          <tr><td>3か月</td><td class="num nw">約50.3万円</td><td class="num nw">約104.7万円</td></tr>
+          <tr><td>6か月</td><td class="num nw">約100.5万円</td><td class="num nw">約154.9万円</td></tr>
+          <tr><td>12か月</td><td class="num nw">約175.5万円</td><td class="num nw">約229.9万円</td></tr>
+          <tr><td>18か月</td><td class="num nw">約250.5万円</td><td class="num nw">約304.9万円</td></tr>
+          <tr><td>24か月</td><td class="num nw">約325.5万円</td><td class="num nw">約379.9万円</td></tr>
         </tbody>
       </table>
     </div>
@@ -381,12 +390,12 @@ footer.site-footer a { color: var(--accent); }
       <table style="white-space:nowrap">
         <thead><tr><th>産休前の月収</th><th class="num">出産手当金（98日）</th><th class="num">育休給付 月額（〜180日）</th><th class="num">育休給付 月額（181日〜）</th><th class="num">合計（育休12か月）</th></tr></thead>
         <tbody>
-          <tr><td>15万円</td><td class="num">約32.7万円</td><td class="num">約10.1万円</td><td class="num">約7.5万円</td><td class="num">約138.0万円</td></tr>
-          <tr><td>20万円</td><td class="num">約43.6万円</td><td class="num">約13.4万円</td><td class="num">約10.0万円</td><td class="num">約184.0万円</td></tr>
-          <tr><td>25万円</td><td class="num">約54.4万円</td><td class="num">約16.8万円</td><td class="num">約12.5万円</td><td class="num">約229.9万円</td></tr>
-          <tr><td>30万円</td><td class="num">約65.3万円</td><td class="num">約20.1万円</td><td class="num">約15.0万円</td><td class="num">約275.9万円</td></tr>
-          <tr><td>35万円</td><td class="num">約76.2万円</td><td class="num">約23.5万円</td><td class="num">約17.5万円</td><td class="num">約321.9万円</td></tr>
-          <tr><td>40万円</td><td class="num">約87.1万円</td><td class="num">約26.8万円</td><td class="num">約20.0万円</td><td class="num">約367.9万円</td></tr>
+          <tr><td>15万円</td><td class="num nw">約32.7万円</td><td class="num nw">約10.1万円</td><td class="num nw">約7.5万円</td><td class="num nw">約138.0万円</td></tr>
+          <tr><td>20万円</td><td class="num nw">約43.6万円</td><td class="num nw">約13.4万円</td><td class="num nw">約10.0万円</td><td class="num nw">約184.0万円</td></tr>
+          <tr><td>25万円</td><td class="num nw">約54.4万円</td><td class="num nw">約16.8万円</td><td class="num nw">約12.5万円</td><td class="num nw">約229.9万円</td></tr>
+          <tr><td>30万円</td><td class="num nw">約65.3万円</td><td class="num nw">約20.1万円</td><td class="num nw">約15.0万円</td><td class="num nw">約275.9万円</td></tr>
+          <tr><td>35万円</td><td class="num nw">約76.2万円</td><td class="num nw">約23.5万円</td><td class="num nw">約17.5万円</td><td class="num nw">約321.9万円</td></tr>
+          <tr><td>40万円</td><td class="num nw">約87.1万円</td><td class="num nw">約26.8万円</td><td class="num nw">約20.0万円</td><td class="num nw">約367.9万円</td></tr>
         </tbody>
       </table>
     </div>
@@ -400,11 +409,11 @@ footer.site-footer a { color: var(--accent); }
       <table>
         <thead><tr><th>項目</th><th class="num">金額・日数</th></tr></thead>
         <tbody>
-          <tr><td>標準報酬日額（月収25万円÷30）</td><td class="num">約8,333円</td></tr>
-          <tr><td>① 出産手当金（日額の2/3×産休98日）</td><td class="num">約54.4万円</td></tr>
-          <tr><td>② 育休給付金・前半180日（日額×67%）</td><td class="num">約100.5万円</td></tr>
-          <tr><td>③ 育休給付金・後半180日（日額×50%）</td><td class="num">約75.0万円</td></tr>
-          <tr class="total"><td>合計受給見込み額（①+②+③）</td><td class="num">約229.9万円</td></tr>
+          <tr><td>標準報酬日額（月収25万円÷30）</td><td class="num nw">約8,333円</td></tr>
+          <tr><td>① 出産手当金（日額の2/3×産休98日）</td><td class="num nw">約54.4万円</td></tr>
+          <tr><td>② 育休給付金・前半180日（日額×67%）</td><td class="num nw">約100.5万円</td></tr>
+          <tr><td>③ 育休給付金・後半180日（日額×50%）</td><td class="num nw">約75.0万円</td></tr>
+          <tr class="total"><td>合計受給見込み額（①+②+③）</td><td class="num nw">約229.9万円</td></tr>
         </tbody>
       </table>
     </div>
